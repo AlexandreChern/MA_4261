@@ -1,4 +1,4 @@
-#### Section 1 Configuration on the servers
+## Section 1 Configuration on the servers
 
 ##### 1. Request a gpu node
 
@@ -33,7 +33,7 @@ And then source this file
 
 
 
-#### Section 2 Install Julia packages
+## Section 2 Install Julia packages
 
 ##### 1. Launch Julia
 
