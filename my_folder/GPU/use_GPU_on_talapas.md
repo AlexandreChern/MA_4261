@@ -4,7 +4,7 @@
 
 `srun --pty --account=erickson  --gres=gpu:1 --mem=8G --time=240 --partition=testgpu bash`
 
-##### 2. load cuda library this is very important !
+##### 2. Load cuda library this is very important !
 `module load cuda/10.1` 
 
  This need to be executed before launching Julia and installing Julia packages, older version like cuda/9.0 might work but it would give warnings about cudnn library not compatible with CuArrays package
