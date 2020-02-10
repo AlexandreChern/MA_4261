@@ -21,7 +21,7 @@
 
 ##### 6. Change your bash setting to use this julia1.3 as default
 
-`vim ~/.bashrc # I would suggest using .bashrc instead of .bash\_profile,`
+`vim ~/.bashrc # I would suggest using .bashrc instead of .bash_profile,`
 
 Add this line to the end of the file
 
