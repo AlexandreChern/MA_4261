@@ -8,6 +8,16 @@ function addvecs!(c,a,b)
     end
 end
 
+
+function fake_knl_addvecs(c,a,b,num_threads_block, num_blocks)
+    for bid = 1:num_blocks
+        for tid = 1:num_threads_per_block
+            i = tid + dim *(bid - 1) # unique global num_threads_block
+            c[i] = a[i] + b[i]
+        end
+    end
+end
+
 let
     N = 1000
     b = rand(N)
@@ -18,4 +28,10 @@ let
 
     c0 = a + b
     @assert isapprox(c0,c)
+    fake_knl_addvecs(c,a,b,4,5)
+
+    c .= 0;
+    threads = 64
+
+    blocks =
 end
