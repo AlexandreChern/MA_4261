@@ -16,8 +16,10 @@
 ##### 4. Download latest julia1.3 from official website into julia1.3 directory
 `wget https://julialang-s3.julialang.org/bin/linux/x64/1.3/julia-1.3.1-linux-x86\_64.tar.gz`
 
+Note: `\_ can be replaced with simply _`
+
 ##### 5. Unzip it 
-`tar -xf julia-1.3.1-linux-x86\_64.tar.gz ` `#\_ can be replaced with simply _`
+`tar -xf julia-1.3.1-linux-x86\_64.tar.gz ` 
 
 ##### 6. Change your bash setting to use this julia1.3 as default
 
