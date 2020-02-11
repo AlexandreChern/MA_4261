@@ -4,6 +4,8 @@
 
 `srun --pty --account=erickson  --gres=gpu:1 --mem=8G --time=240 --partition=testgpu bash`
 
+This can be stored into a shell script and reused later 
+
 ##### 2. Load cuda library this is very important !
 `module load cuda/10.1` 
 
