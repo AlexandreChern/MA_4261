@@ -89,5 +89,5 @@ From my previous experience, I would always add these lines in the script even m
 
 With the steps above, I got my julia1.3 working with both K80 (on @120 node) and v100 (on @245 node).
 
-It is frustrating that when you are assigned a different node, usually you will receive errors when trying to use CUDAnative package and needs to rebuild. It's still not clear to me what I need to do exactly, although most of the times what I did worked.  (rebuilding CUDAnative.jl, uisng CUDAdrv, etc)
+It is frustrating that when you are assigned a different node, usually you will receive errors when trying to use CUDAnative package and needs to rebuild. It's still not clear to me what I need to do exactly, although most of the times what I did worked.  (rebuilding CUDAnative.jl, using CUDAdrv, etc)
 
