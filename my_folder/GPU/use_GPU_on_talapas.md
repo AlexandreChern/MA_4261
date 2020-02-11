@@ -1,10 +1,12 @@
-#### Section 1 Configuration on the servers
+## Section 1 Configuration on the servers
 
 ##### 1. Request a gpu node
 
 `srun --pty --account=erickson  --gres=gpu:1 --mem=8G --time=240 --partition=testgpu bash`
 
-##### 2. load cuda library this is very important !
+This can be stored into a shell script and reused later 
+
+##### 2. Load cuda library this is very important !
 `module load cuda/10.1` 
 
  This need to be executed before launching Julia and installing Julia packages, older version like cuda/9.0 might work but it would give warnings about cudnn library not compatible with CuArrays package
@@ -16,12 +18,14 @@
 ##### 4. Download latest julia1.3 from official website into julia1.3 directory
 `wget https://julialang-s3.julialang.org/bin/linux/x64/1.3/julia-1.3.1-linux-x86\_64.tar.gz`
 
+Note: `\_ can be replaced with simply _`
+
 ##### 5. Unzip it 
-`tar -xf julia-1.3.1-linux-x86\_64.tar.gz `
+`tar -xf julia-1.3.1-linux-x86\_64.tar.gz ` 
 
 ##### 6. Change your bash setting to use this julia1.3 as default
 
-`vim ~/.bashrc # I would suggest using .bashrc instead of .bash\_profile,`
+`vim ~/.bashrc # I would suggest using .bashrc instead of .bash_profile,`
 
 Add this line to the end of the file
 
@@ -33,7 +37,7 @@ And then source this file
 
 
 
-#### Section 2 Install Julia packages
+## Section 2 Install Julia packages
 
 ##### 1. Launch Julia
 
@@ -85,5 +89,5 @@ From my previous experience, I would always add these lines in the script even m
 
 With the steps above, I got my julia1.3 working with both K80 (on @120 node) and v100 (on @245 node).
 
-It is frustrating that when you are assigned a different node, usually you will receive errors when trying to use CUDAnative package and needs to rebuild. It's still not clear to me what I need to do exactly, although most of the times what I did worked.  (rebuilding CUDAnative.jl, uisng CUDAdrv, etc)
+It is frustrating that when you are assigned a different node, usually you will receive errors when trying to use CUDAnative package and needs to rebuild. It's still not clear to me what I need to do exactly, although most of the times what I did worked.  (rebuilding CUDAnative.jl, using CUDAdrv, etc)
 
