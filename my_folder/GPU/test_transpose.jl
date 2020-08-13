@@ -34,6 +34,7 @@ function copy_prefetch_tile!(b, a, ::Val{TILE_DIM}, ::Val{BLOCK_ROWS}) where {TI
         j = j0 + k * BLOCK_ROWS
         if i <= N && j <= N
             @inbounds b[i, j] = tile[k+1]
+
         end
     end
 
@@ -83,8 +84,10 @@ function copy_tiled_shared!(b, a, ::Val{TILE_DIM}, ::Val{BLOCK_ROWS}) where {TIL
     @unroll for k = 0:BLOCK_ROWS:TILE_DIM-1
         if i <= N && (j+k) <= N
             @inbounds tile[tidx, tidy+k] = a[i, j+k]
+
         end
     end
+
 
     sync_threads()
 
@@ -180,7 +183,7 @@ function transpose_tiled_prefetch!(b, a, ::Val{TILE_DIM}, ::Val{BLOCK_ROWS}) whe
 
     N = size(a, 1)
     tidx, tidy = threadIdx().x, threadIdx().y
-    i  = (blockIdx().x - 1) * TILE_DIM + tidx,
+    i  = (blockIdx().x - 1) * TILE_DIM + tidx
     j0 = (blockIdx().y - 1) * TILE_DIM + tidy
 
     if i <= N
